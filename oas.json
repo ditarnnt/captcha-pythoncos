@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "FastAPI",
+        "version": "0.1.0"
+    },
+    "servers": [
+        {
+            "url": "https://imigrasi-captcha.1dxqfzeky8ci.us-south.codeengine.appdomain.cloud"
+        }
+    ],
+    "paths": {
+        "/captcha": {
+            "get": {
+                "summary": "Generate CAPTCHA",
+                "operationId": "get_captcha_captcha_get",
+                "responses": {
+                    "200": {
+                        "description": "CAPTCHA text and image URL",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CaptchaResponse"
+                                },
+                                "example": {
+                                    "captcha_text": "oKWGlE",
+                                    "image_url": "https://upload-foto-2.s3.ap.cloud-object-storage.appdomain.cloud/captcha-oKWGlE.png"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CaptchaResponse": {
+                "type": "object",
+                "properties": {
+                    "captcha_text": {
+                        "type": "string",
+                        "title": "Captcha Text"
+                    },
+                    "image_url": {
+                        "type": "string",
+                        "title": "Image Url"
+                    }
+                },
+                "required": [
+                    "captcha_text",
+                    "image_url"
+                ],
+                "title": "CaptchaResponse"
+            }
+        }
+    }
+}
