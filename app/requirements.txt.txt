@@ -1,4 +1,0 @@
-fastapi
-uvicorn[standard]
-pillow
-ibm-cos-sdk
